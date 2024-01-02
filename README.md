@@ -20,7 +20,7 @@ An in-browser interactive library
 
 # Challenges
 
--A challenge followed by a double space  
+-Modifying the DOM  
 
 # Lessons
 

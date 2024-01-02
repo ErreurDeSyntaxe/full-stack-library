@@ -21,12 +21,19 @@ main {
     flex: 1;
 }
 
+.bookshelf {
+    /* display: grid;
+    grid-template-columns: repeat(auto-fill, 250px); */
+}
+
 .book-card {
     border: 2px solid black;
     border-radius: 8px;
     padding: 8px;
+    background-color: whitesmoke;
 }
 
+header, 
 footer {
     background-color: lightgray;
     width: 100vw;
