@@ -8,3 +8,27 @@
 *::after {
     box-sizing: inherit;
 }
+
+body {
+    background-color: darkgray;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main {
+    flex: 1;
+}
+
+.book-card {
+    border: 2px solid black;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+footer {
+    background-color: lightgray;
+    width: 100vw;
+    text-align: center;
+}

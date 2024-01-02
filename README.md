@@ -15,7 +15,8 @@ An in-browser interactive library
 
 # Notable Features
 
--A feature followed by a double space  
+-Ability to add and remove books  
+-Ability to mark book as read or not  
 
 # Challenges
 

@@ -1,13 +1,4 @@
-// EVERYDAY PHYSICAL THING CONSTRUCTOR
-function Thing(location) {
-    this.location = location;
-}
-
-Thing.prototype.locate = function () {
-    return "I'm somewhere close to " + this.location;
-}
-
-const thing1 = new Thing("the living room");
+const library = [];
 
 // BOOK CONSTRUCTOR
 function Book(title, author, pageCount, read) {
@@ -25,17 +16,12 @@ Book.prototype.info = function () {
         return `${this.title} by ${this.author}, ${pageCount} pages long, not read yet`;
 }
 
-Object.setPrototypeOf(Book.prototype, Thing.prototype);
-
 // A FEW BOOKS TO FILL THE LIBRARY WHILE THE PROJECT GROWS
-const book1 = new Book("The Hobbit", "Tolkien", 400, true);
-const book2 = new Book("The LOTR", "Tolkien", 1200, true);
-const book3 = new Book("The Sandman", "Gaiman", 2000, true);
+const book1 = new Book("The Hobbit", "J R R Tolkien", 310, true);
+const book2 = new Book("The Lord of the Rings", "J R R Tolkien", 1178, true);
+const book3 = new Book("The Sandman", "N Gaiman", 3000, true);
 const book4 = Object.create(Book);
 book4.title = "Meditations";
 book4.author = "Marcus Aurelius";
-book4.pageCount = 200;
+book4.pageCount = 88;
 book4.read = false;
-
-// TRYING OUT OBJECT FUNCTIONS
-console.table(book4);
