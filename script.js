@@ -57,6 +57,20 @@ function displayBooks() {
         readButton.classList.toggle("read-button");
         rmvButton.classList.toggle("rmv-button");
 
+        // activate the buttons
+        readButton.addEventListener("click", () => {
+            readButton.classList.toggle("read-button");
+            readButton.classList.toggle("notread-button");
+            if (readButton.textContent == "Read")
+                readButton.textContent = "Not Read";
+            else
+                readButton.textContent = "Read";
+        });
+        rmvButton.addEventListener("click", () => {
+            aBook.remove();
+            removeBook(title.textContent);
+        });
+
         aBook.appendChild(title);
         aBook.appendChild(author);
         aBook.appendChild(pageCount);
@@ -64,8 +78,15 @@ function displayBooks() {
         aBook.appendChild(lineBreak);
         aBook.appendChild(rmvButton);
 
-        console.log(aBook);
         bookshelf.appendChild(aBook);
+    }
+}
+
+function removeBook(string) {
+    for (let i = 0; i < library.length; i++) {
+        if (library[i].title === string) {
+            library.splice(i, 1);
+        }
     }
 }
 

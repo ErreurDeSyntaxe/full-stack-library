@@ -29,8 +29,8 @@ main {
 }
 
 .bookshelf {
-    /* display: grid;
-    grid-template-columns: repeat(auto-fill, 250px); */
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .book-card {
@@ -39,6 +39,8 @@ main {
     padding: 8px;
     background-color: whitesmoke;
     margin: 12px;
+    width: 200px;
+    overflow: hidden;
 }
 
 .centered {
@@ -56,15 +58,17 @@ button {
     border: 0;
     margin-top: 5px;
     margin-bottom: 5px;
+    content: "Read";
 }
 
 .notread-button {
     width: 100%;
-    background-color: lightgoldenrodyellow;
+    background-color: goldenrod;
     border-radius: 6px;
     border: 0;
     margin-top: 5px;
     margin-bottom: 5px;
+    content: "Not Read";
 }
 
 .rmv-button {
