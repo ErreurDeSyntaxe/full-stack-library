@@ -1,5 +1,13 @@
 const library = [];
 let bookshelf = document.querySelector(".bookshelf");
+let addBook = document.querySelector("add-button");
+addBook.addEventListener("click", () => {
+    createForm();
+});
+
+function createForm() {
+    
+}
 
 // BOOK CONSTRUCTOR
 function Book(title, author, pageCount, read) {
