@@ -18,12 +18,12 @@ Book.prototype.info = function () {
 }
 
 // A FEW BOOKS TO FILL THE LIBRARY WHILE THE PROJECT GROWS
-const book1 = new Book("The Hobbit", "J R R Tolkien", 310, true);
-const book2 = new Book("The Lord of the Rings", "J R R Tolkien", 1178, true);
-const book3 = new Book("The Sandman", "N Gaiman", 3000, true);
+const book1 = new Book("The Hobbit", "Tolkien", 310, true);
+const book2 = new Book("The Lord of the Rings", "Tolkien", 1178, true);
+const book3 = new Book("The Sandman", "Gaiman", 3000, true);
 const book4 = Object.create(Book.prototype);
 book4.title = "Meditations";
-book4.author = "M Aurelius";
+book4.author = "Aurelius";
 book4.pageCount = 88;
 book4.read = false;
 
@@ -42,14 +42,20 @@ function displayBooks() {
         let lineBreak = document.createElement("br");
         let rmvButton = document.createElement("button");
 
-        title.textContent = library[0].title;
+        title.textContent = library[i].title;
         title.style.fontStyle = "italic";
-        author.textContent = library[0].author;
-        pageCount.textContent = library[0].pageCount + " pages";
+        author.textContent = library[i].author;
+        pageCount.textContent = library[i].pageCount + " pages";
         readButton.textContent = "Read";
         rmvButton.textContent = "Remove";
 
         // add classes so the CSS takes effect
+        aBook.classList.toggle("book-card")
+        title.classList.toggle("centered");
+        author.classList.toggle("centered");
+        pageCount.classList.toggle("centered");
+        readButton.classList.toggle("read-button");
+        rmvButton.classList.toggle("rmv-button");
 
         aBook.appendChild(title);
         aBook.appendChild(author);

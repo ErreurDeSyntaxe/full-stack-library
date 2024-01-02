@@ -9,6 +9,13 @@
     box-sizing: inherit;
 }
 
+header,
+footer {
+    background-color: lightgray;
+    width: 100vw;
+    text-align: center;
+}
+
 body {
     background-color: darkgray;
     min-height: 100vh;
@@ -31,11 +38,38 @@ main {
     border-radius: 8px;
     padding: 8px;
     background-color: whitesmoke;
+    margin: 12px;
 }
 
-header, 
-footer {
-    background-color: lightgray;
-    width: 100vw;
+.centered {
     text-align: center;
+}
+
+button {
+    padding: 6px;
+}
+
+.read-button {
+    width: 100%;
+    background-color: lightgreen;
+    border-radius: 6px;
+    border: 0;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.notread-button {
+    width: 100%;
+    background-color: lightgoldenrodyellow;
+    border-radius: 6px;
+    border: 0;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.rmv-button {
+    width: 100%;
+    background-color:rgb(255, 70, 70);
+    border-radius: 6px;
+    border: 0;
 }
