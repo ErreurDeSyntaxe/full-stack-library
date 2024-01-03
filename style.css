@@ -36,8 +36,9 @@ main {
 .bookshelf {
     border: 1px dashed red;
     align-self: center;
-    display: flex;
-    flex-wrap: wrap;
+    width: 80vw;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 230px);
     justify-content: center;
 }
 
