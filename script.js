@@ -1,14 +1,10 @@
 const library = [];
 let bookshelf = document.querySelector(".bookshelf");
-let addBook = document.querySelector("add-button");
-// addBook.addEventListener("click", () => {
-//     createForm();
-// });
-
-// function createForm() {
-//     let i = 0;
-//     return i;
-// }
+const dialog = document.querySelector("dialog");
+let addBook = document.querySelector(".add-button");
+addBook.addEventListener("click", () => {
+    dialog.showModal();
+});
 
 // BOOK CONSTRUCTOR
 function Book(title, author, pageCount, read) {
@@ -66,7 +62,7 @@ function displayBooks() {
         readButton.classList.toggle("read-button");
         rmvButton.classList.toggle("rmv-button");
 
-        // activate the buttons
+        // activate the buttons on each book-card
         readButton.addEventListener("click", () => {
             readButton.classList.toggle("read-button");
             readButton.classList.toggle("notread-button");
@@ -76,8 +72,8 @@ function displayBooks() {
                 readButton.textContent = "Read";
         });
         rmvButton.addEventListener("click", () => {
-            aBook.remove();
-            removeBook(title.textContent);
+            aBook.remove();//remove from DOM
+            removeBook(title.textContent);//remove from array
         });
 
         aBook.appendChild(title);
