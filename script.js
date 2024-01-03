@@ -24,7 +24,7 @@ function getInput() {
         inputPageCount.value,
         alreadyRead.checked);
     library.push(newBook);
-    displayBooks();
+    displayBook(newBook);
     //reset the form
     inputTitle.value = "";
     inputAuthor.value = "";
@@ -63,73 +63,79 @@ library.push(book2);
 library.push(book3);
 library.push(book4);
 
-function displayBooks() {
-    for (let i = 0; i < library.length; i++) {
-        let aBook = document.createElement("div");
-        let title = document.createElement("p");
-        let author = document.createElement("p");
-        let pageCount = document.createElement("p");
-        let readButton = document.createElement("button");
-        let lineBreak = document.createElement("br");
-        let rmvButton = document.createElement("button");
+function displayBook(newBook) {
+    let aBook = document.createElement("div");
+    let title = document.createElement("p");
+    let author = document.createElement("p");
+    let pageCount = document.createElement("p");
+    let readButton = document.createElement("button");
+    let lineBreak = document.createElement("br");
+    let rmvButton = document.createElement("button");
 
-        title.textContent = library[i].title;
-        title.style.fontStyle = "italic";
-        author.textContent = library[i].author;
-        pageCount.textContent = library[i].pageCount + " pages";
-        if (library[i].read) {
-            readButton.textContent = "Read";
-            readButton.classList.toggle("read-button");
-        } else {
+    title.textContent = newBook.title;
+    title.style.fontStyle = "italic";
+    author.textContent = newBook.author;
+    pageCount.textContent = newBook.pageCount + " pages";
+    if (newBook.read) {
+        readButton.textContent = "Read";
+        readButton.classList.toggle("read-button");
+    } else {
+        readButton.textContent = "Not Read";
+        readButton.classList.toggle("notread-button");
+    }
+    rmvButton.textContent = "Remove";
+
+    // add classes so the CSS takes effect
+    aBook.classList.toggle("book-card")
+    title.classList.toggle("centered");
+    author.classList.toggle("centered");
+    pageCount.classList.toggle("centered");
+    // readButton.classList.toggle("read-button");
+    // readButton.classList.toggle("notread-button");
+    // These 2 lines of code migrated North in an if else statement
+    rmvButton.classList.toggle("rmv-button");
+
+    // activate the buttons on each book-card
+    readButton.addEventListener("click", () => {
+        readButton.classList.toggle("read-button");
+        readButton.classList.toggle("notread-button");
+        if (readButton.textContent == "Read") {
             readButton.textContent = "Not Read";
-            readButton.classList.toggle("notread-button");
+        } else {
+            readButton.textContent = "Read";
         }
-        rmvButton.textContent = "Remove";
+        updateRead(newBook.title);
+    });
+    rmvButton.addEventListener("click", () => {
+        aBook.remove();//remove from DOM
+        removeBook(title.textContent);//remove from array
+    });
 
-        // add classes so the CSS takes effect
-        aBook.classList.toggle("book-card")
-        title.classList.toggle("centered");
-        author.classList.toggle("centered");
-        pageCount.classList.toggle("centered");
-        // readButton.classList.toggle("read-button");
-        // readButton.classList.toggle("notread-button");
-        // These 2 lines of code migrated North in an if else statement
-        rmvButton.classList.toggle("rmv-button");
+    aBook.appendChild(title);
+    aBook.appendChild(author);
+    aBook.appendChild(pageCount);
+    aBook.appendChild(readButton);
+    aBook.appendChild(lineBreak);
+    aBook.appendChild(rmvButton);
 
-        // activate the buttons on each book-card
-        readButton.addEventListener("click", () => {
-            readButton.classList.toggle("read-button");
-            readButton.classList.toggle("notread-button");
-            if (readButton.textContent == "Read") {
-                readButton.textContent = "Not Read";
-                library[i].read = !library[i].read;
-            } else {
-                readButton.textContent = "Read";
-                library[i].read = !library[i].read;
-            }
-        });
-        rmvButton.addEventListener("click", () => {
-            aBook.remove();//remove from DOM
-            removeBook(title.textContent);//remove from array
-        });
+    bookshelf.appendChild(aBook);
+}
 
-        aBook.appendChild(title);
-        aBook.appendChild(author);
-        aBook.appendChild(pageCount);
-        aBook.appendChild(readButton);
-        aBook.appendChild(lineBreak);
-        aBook.appendChild(rmvButton);
-
-        bookshelf.appendChild(aBook);
+function updateRead(string) {
+    for (let i = 0; i < library.length; i++) {
+        if (library[i].title === string) {
+            library[i].read = !library[i].read;
+            return;
+        }
     }
 }
+
 
 function removeBook(string) {
     for (let i = 0; i < library.length; i++) {
         if (library[i].title === string) {
             library.splice(i, 1);
+            return;
         }
     }
 }
-
-displayBooks();
