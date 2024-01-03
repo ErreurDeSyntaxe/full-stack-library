@@ -10,15 +10,20 @@ addBook.addEventListener("click", () => {
 
 confirmBook.addEventListener("click", (event) => {
     event.preventDefault();
-    getInput();
-    dialog.close();
+    if(processInput())
+        dialog.close();
+    return;
 })
 
-function getInput() {
+function processInput() {
     let inputTitle = document.querySelector("#input-title");
     let inputAuthor = document.querySelector("#input-author");
     let inputPageCount = document.querySelector("#input-page-count");
     let alreadyRead = document.querySelector("#alreadyRead");
+    if (inputTitle.value == "" ||
+        inputAuthor.value == "" ||
+        inputPageCount.value == "")
+        return false;
     let newBook = new Book(inputTitle.value,
         inputAuthor.value,
         inputPageCount.value,
@@ -30,6 +35,7 @@ function getInput() {
     inputAuthor.value = "";
     inputPageCount.value = "";
     alreadyRead.checked = false;
+    return true;
 }
 
 // BOOK CONSTRUCTOR
