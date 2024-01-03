@@ -49,6 +49,7 @@ button {
 .add-button {
     width: 100px;
     align-self: center;
+    margin-top: 10px;
 }
 
 dialog {

@@ -49,19 +49,19 @@ Book.prototype.info = function () {
 }
 
 // A FEW BOOKS TO FILL THE LIBRARY WHILE THE PROJECT GROWS
-const book1 = new Book("The Hobbit", "Tolkien", 310, true);
-const book2 = new Book("The Lord of the Rings", "Tolkien", 1178, true);
-const book3 = new Book("The Sandman", "Gaiman", 3000, true);
-const book4 = Object.create(Book.prototype);
-book4.title = "Meditations";
-book4.author = "Aurelius";
-book4.pageCount = 88;
-book4.read = false;
+// const book1 = new Book("The Hobbit", "Tolkien", 310, true);
+// const book2 = new Book("The Lord of the Rings", "Tolkien", 1178, true);
+// const book3 = new Book("The Sandman", "Gaiman", 3000, true);
+// const book4 = Object.create(Book.prototype);
+// book4.title = "Meditations";
+// book4.author = "Aurelius";
+// book4.pageCount = 88;
+// book4.read = false;
 
-library.push(book1);
-library.push(book2);
-library.push(book3);
-library.push(book4);
+// library.push(book1);
+// library.push(book2);
+// library.push(book3);
+// library.push(book4);
 
 function displayBook(newBook) {
     let aBook = document.createElement("div");

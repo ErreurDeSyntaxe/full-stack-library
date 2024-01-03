@@ -21,11 +21,15 @@ An in-browser interactive library
 # Challenges
 
 -Modifying the DOM  
+-Styling the page with Grid and Flexbox  
 
 # Lessons
 
--A lesson learned followed by a double space  
+-Input  
+-Dialog  
+-DOM manipulation  
+-.value != .textContent
 
 # Diary
 
-Something to say
+Nice JavaScript, CSS, and HTML practice. 
