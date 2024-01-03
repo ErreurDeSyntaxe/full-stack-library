@@ -3,39 +3,35 @@ const bookshelf = document.querySelector(".bookshelf");
 const dialog = document.querySelector("dialog");
 const addBook = document.querySelector(".add-button");
 const confirmBook = document.querySelector("#confirm-button");
+const inTitle = document.querySelector("#title");
+const inAuthor = document.querySelector("#author");
+const inPageCount = document.querySelector("#page-count");
+const wasRead = document.querySelector("#wasRead");
+const addBookForm = document.querySelector("#add-book-form");
 
 addBook.addEventListener("click", () => {
     dialog.showModal();
 });
 
 confirmBook.addEventListener("click", (event) => {
-    event.preventDefault();
-    if(processInput())
-        dialog.close();
-    return;
-})
+    if (inTitle.value == "" ||
+        inAuthor.value == "" ||
+        inPageCount.value == "" ||
+        inPageCount.value > 10000 ||
+        inPageCount.value < 1)
+        return;
+    else
+        submitBook();
+});
 
-function processInput() {
-    let inputTitle = document.querySelector("#input-title");
-    let inputAuthor = document.querySelector("#input-author");
-    let inputPageCount = document.querySelector("#input-page-count");
-    let alreadyRead = document.querySelector("#alreadyRead");
-    if (inputTitle.value == "" ||
-        inputAuthor.value == "" ||
-        inputPageCount.value == "")
-        return false;
-    let newBook = new Book(inputTitle.value,
-        inputAuthor.value,
-        inputPageCount.value,
-        alreadyRead.checked);
+function submitBook() {
+    let newBook = new Book(inTitle.value, inAuthor.value,
+        inPageCount.value, wasRead.checked);
     library.push(newBook);
     displayBook(newBook);
-    //reset the form
-    inputTitle.value = "";
-    inputAuthor.value = "";
-    inputPageCount.value = "";
-    alreadyRead.checked = false;
-    return true;
+
+    dialog.close();
+    addBookForm.reset();
 }
 
 // BOOK CONSTRUCTOR
@@ -46,30 +42,8 @@ function Book(title, author, pageCount, read) {
     this.read = read;
 }
 
-// A FUNCTION DEFINE ON THE PROTOTYPE RATHER THAN IN THE CONSTRUCTOR
-Book.prototype.info = function () {
-    if (this.read)
-        return `${this.title} by ${this.author}, ${this.pageCount} pages long, already read`;
-    else
-        return `${this.title} by ${this.author}, ${this.pageCount} pages long, not read yet`;
-}
-
-// A FEW BOOKS TO FILL THE LIBRARY WHILE THE PROJECT GROWS
-// const book1 = new Book("The Hobbit", "Tolkien", 310, true);
-// const book2 = new Book("The Lord of the Rings", "Tolkien", 1178, true);
-// const book3 = new Book("The Sandman", "Gaiman", 3000, true);
-// const book4 = Object.create(Book.prototype);
-// book4.title = "Meditations";
-// book4.author = "Aurelius";
-// book4.pageCount = 88;
-// book4.read = false;
-
-// library.push(book1);
-// library.push(book2);
-// library.push(book3);
-// library.push(book4);
-
 function displayBook(newBook) {
+    // CREATE THE DOM ELEMENTS NEEDED
     let aBook = document.createElement("div");
     let title = document.createElement("p");
     let author = document.createElement("p");
@@ -96,9 +70,6 @@ function displayBook(newBook) {
     title.classList.toggle("centered");
     author.classList.toggle("centered");
     pageCount.classList.toggle("centered");
-    // readButton.classList.toggle("read-button");
-    // readButton.classList.toggle("notread-button");
-    // These 2 lines of code migrated North in an if else statement
     rmvButton.classList.toggle("rmv-button");
 
     // activate the buttons on each book-card
@@ -135,7 +106,6 @@ function updateRead(string) {
         }
     }
 }
-
 
 function removeBook(string) {
     for (let i = 0; i < library.length; i++) {

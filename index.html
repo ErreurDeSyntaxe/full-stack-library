@@ -19,14 +19,14 @@
     </main>
 
     <dialog class="add-book-box">
-        <form action="">
-            <input id="input-title" type="text" placeholder="Title">
-            <input id="input-author" type="text" placeholder="Author">
-            <input id="input-page-count" type="number" placeholder="123 pages">
+        <form id="add-book-form">
+            <input id="title" type="text" placeholder="Title" required maxlength="100">
+            <input id="author" type="text" placeholder="Author" required maxlength="100">
+            <input id="page-count" type="number" placeholder="123 pages" required min="1" max="100">
             <div>Have you read it?</div>
-            <input id="alreadyRead" type="checkbox">
+            <input id="wasRead" type="checkbox">
             <br>
-            <button type="submit" id="confirm-button">Confirm</button>
+            <button type="button" id="confirm-button">Confirm</button>
         </form>
     </dialog>
 
