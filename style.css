@@ -34,7 +34,6 @@ main {
 }
 
 .bookshelf {
-    border: 1px dashed red;
     align-self: center;
     width: 80vw;
     display: grid;
