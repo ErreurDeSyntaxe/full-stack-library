@@ -35,9 +35,11 @@ main {
 
 .bookshelf {
     align-self: center;
-    width: 80vw;
+    width: min(80vw, 700px);
     display: grid;
-    grid-template-columns: repeat(auto-fit, 230px);
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, 200px);
+    grid-auto-rows: 145px;
     justify-content: center;
 }
 
@@ -50,6 +52,7 @@ button {
     width: 100px;
     align-self: center;
     margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 dialog {
@@ -90,7 +93,6 @@ dialog {
     border-radius: 8px;
     padding: 8px;
     background-color: whitesmoke;
-    margin: 12px;
     width: 200px;
     overflow: hidden;
     & .read-button {
