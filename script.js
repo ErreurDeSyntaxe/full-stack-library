@@ -25,21 +25,36 @@ confirmBook.addEventListener("click", (event) => {
 });
 
 function submitBook() {
-    let newBook = new Book(inTitle.value, inAuthor.value,
-        inPageCount.value, wasRead.checked);
-    library.push(newBook);
-    displayBook(newBook);
+    let nouveauLivre = new Livre(inTitle.value, inAuthor.value,
+        inPageCount.value, wasRead.value);
+    library.push(nouveauLivre);
+    displayBook(nouveauLivre);
+    
+    // let newBook = new Book(inTitle.value, inAuthor.value,
+    //     inPageCount.value, wasRead.checked);
+    // library.push(newBook);
+    // displayBook(newBook);
 
     dialog.close();
     addBookForm.reset();
 }
 
 // BOOK CONSTRUCTOR
-function Book(title, author, pageCount, read) {
-    this.title = title;
-    this.author = author;
-    this.pageCount = pageCount;
-    this.read = read;
+// function Book(title, author, pageCount, read) {
+//     this.title = title;
+//     this.author = author;
+//     this.pageCount = pageCount;
+//     this.read = read;
+// }
+
+// BOOK CLASS
+class Livre {
+    constructor(title, author, pageCount, read) {
+        this.title = title;
+        this.author = author;
+        this.pageCount = pageCount;
+        this.read = read;
+    }
 }
 
 function displayBook(newBook) {
