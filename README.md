@@ -15,6 +15,9 @@ An in-browser interactive library
 
 # Notable Features
 
+-HTML  
+-CSS  
+-JavaScript  
 -Ability to add and remove books  
 -Ability to mark book as read or not  
 
@@ -28,8 +31,5 @@ An in-browser interactive library
 -Input  
 -Dialog  
 -DOM manipulation  
--.value != .textContent
-
-# Diary
-
-Nice JavaScript, CSS, and HTML practice. 
+-.value != .textContent  
+-JavaScript classes  
