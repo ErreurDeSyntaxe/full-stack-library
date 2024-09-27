@@ -33,3 +33,4 @@ An in-browser interactive library
 # Diary
 
 Nice JavaScript, CSS, and HTML practice. 
+Nine months later, I want to redo this project to implement better JS practices.
